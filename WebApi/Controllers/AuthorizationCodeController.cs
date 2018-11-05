@@ -25,7 +25,8 @@ namespace WebApi.Controllers
             _client = client;
         }
         //git remote add origin https://github.com/zlxzlxzlx/Test.git
-        //git remote add origin 
+        //git remote add origin git@github.com:lisishuang/MyWebApi.git
+        //测试上传
         /// <summary>
         /// 根据code得到令牌信息
         /// </summary>
