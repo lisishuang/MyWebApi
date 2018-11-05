@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:WebApi.Controllers.AuthorizationCodeController">
+            <summary>
+            权限校验
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.AuthorizationCodeController.Post(WebApi.Controllers.AuthorizationCodeModel)">
+            <summary>
+            根据code得到令牌信息
+            </summary>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="P:WebApi.Controllers.AuthorizationCodeModel.code">
+            <summary>
+            授权码
+            </summary>
+        </member>
+        <member name="P:WebApi.Controllers.AuthorizationCodeModel.state">
+            <summary>
+            状态值
+            </summary>
+        </member>
+        <member name="P:WebApi.Controllers.AuthorizationCodeModel.redirect_uri">
+            <summary>
+            重定向URI
+            </summary>
+        </member>
+        <member name="T:WebApi.Controllers.LogisticsController">
+            <summary>
+            物流服务
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.LogisticsController.LogisticsList">
+            <summary>
+            物流服务查询
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:WebApi.Controllers.Logistics.Name">
+            <summary>
+            物流应用名称
+            </summary>
+        </member>
+        <member name="P:WebApi.Controllers.Logistics.State">
+            <summary>
+            物流应用状态
+            </summary>
+        </member>
+        <member name="T:WebApi.Controllers.OrderController">
+            <summary>
+            配送单相关
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.OrderController.OrderList">
+            <summary>
+            查询订单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.OrderController.OrderProcess(System.String)">
+            <summary>
+            查询订单流程
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.OrderController.UpdateOrderState(System.String,System.Int32)">
+            <summary>
+            修改订单状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.OrderController.GetOrderCount(System.Int32,System.String,System.Int32)">
+            <summary>
+            查询监控-配送单数量
+            </summary>
+            <param name="logisticsType">物流类型</param>
+            <param name="goodsId">商品</param>
+            <param name="state">配送单状态</param>
+            <returns></returns>
+        </member>
+        <member name="T:WebApi.Controllers.RechargeController">
+            <summary>
+            充值类
+            </summary>
+        </member>
+        <member name="M:WebApi.Controllers.RechargeController.Add(Domain.LogisticsChannel)">
+            <summary>
+            充值类配置
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.RechargeController.RechargeList">
+            <summary>
+            充值类查询
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WebApi.Controllers.Recharge">
+            <summary>
+            充值类
+            </summary>
+        </member>
+        <member name="P:WebApi.Controllers.Recharge.Name">
+            <summary>
+            充值类名称
+            </summary>
+        </member>
+        <member name="P:WebApi.Controllers.Recharge.Path">
+            <summary>
+            充值类
+            </summary>
+        </member>
+        <member name="P:WebApi.Controllers.Recharge.Application">
+            <summary>
+            所属应用
+            </summary>
+        </member>
+    </members>
+</doc>
