@@ -39,12 +39,17 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<IISOptions>(options =>
+            {
+                options.ForwardClientCertificate = false;
+            });
             services.AddKing<LogisticsContext>(x =>
             {
                 x.DbType = DbType.MYSQL;
                 x.ConnectionString = "server=10.0.1.148;Database=logistics;Uid=root;Pwd=fuludev;Port=3306;Allow User Variables=True;";
             });
             services.AddTransient<ILogisticsChannelRepository, LogisticsChannelRepository>();
+            services.AddTransient<ILogisticsMerchantRepository, LogisticsMerchantRepository>();
             #region 授权验证配置
             //services.AddAuthorizeClient(new Uri(Configuration["Endpoints:Authorize"]), options =>
             //{

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Domain;
+using ICH.King;
 using ICH.Util.Web;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -10,39 +12,41 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApi.Controllers
 {
     /// <summary>
-    /// 物流服务
+    /// 物流通用接口
     /// </summary>
-    [Route("api/[controller]")]
-    [ApiController]
     public class LogisticsController : Controller
     {
+
+        private readonly ILogisticsMerchantRepository _logisticsMerchantRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        public LogisticsController(ILogisticsMerchantRepository logisticsMerchantRepository, IUnitOfWork unitOfWork)
+        {
+            _logisticsMerchantRepository = logisticsMerchantRepository;
+            _unitOfWork = unitOfWork;
+        }
         /// <summary>
-        /// 物流服务查询
+        /// 物流应用
+        /// 下拉框专用
         /// </summary>
         /// <returns></returns>
-        [HttpPost("LogisticsList")]
-        [Authorize]
-        public IActionResult LogisticsList()
+        [HttpGet("MerchantList")]
+        [AllowAnonymous]
+        public async Task<IActionResult> MerchantList()
         {
-            List<Logistics> list = new List<Logistics>();
-            return (IActionResult)Json(ResponseResult.Execute(new
+            List<LogisticsCmb> list = new List<LogisticsCmb>();
+            var data = _logisticsMerchantRepository.TableNoTracking.ToList();
+            foreach (var item in data)
             {
-                data = list,
-                code = 0,
-                message = "success",
-                messageType = MessageType.success
-            }));
+                list.Add(new LogisticsCmb() { Id = item.Id, Name = item.MerchantName });
+            }
+            return Ok(list);
         }
+
+
     }
-    public class Logistics
+    public class LogisticsCmb
     {
-        /// <summary>
-        /// 物流应用名称
-        /// </summary>
+        public int Id { get; set; }
         public string Name { get; set; }
-        /// <summary>
-        /// 物流应用状态
-        /// </summary>
-        public int State { get; set; }
     }
 }

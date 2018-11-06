@@ -33,24 +33,15 @@
         </member>
         <member name="T:WebApi.Controllers.LogisticsController">
             <summary>
-            物流服务
+            物流通用接口
             </summary>
         </member>
-        <member name="M:WebApi.Controllers.LogisticsController.LogisticsList">
+        <member name="M:WebApi.Controllers.LogisticsController.MerchantList">
             <summary>
-            物流服务查询
+            物流应用
+            下拉框专用
             </summary>
             <returns></returns>
-        </member>
-        <member name="P:WebApi.Controllers.Logistics.Name">
-            <summary>
-            物流应用名称
-            </summary>
-        </member>
-        <member name="P:WebApi.Controllers.Logistics.State">
-            <summary>
-            物流应用状态
-            </summary>
         </member>
         <member name="T:WebApi.Controllers.OrderController">
             <summary>
@@ -99,6 +90,14 @@
             <summary>
             充值类查询
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApi.Controllers.RechargeController.ChannelList(System.Int32)">
+            <summary>
+            充值类
+            下拉框专用
+            </summary>
+            <param name="MerchantId">物流应用ID</param>
             <returns></returns>
         </member>
         <member name="T:WebApi.Controllers.Recharge">

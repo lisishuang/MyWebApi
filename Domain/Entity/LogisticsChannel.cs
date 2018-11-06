@@ -10,9 +10,10 @@ namespace Domain
     public class LogisticsChannel
     {
         public int Id { get; set; }
-        public string LogisticsMerchantId { get; set; }
+        public int LogisticsMerchantId { get; set; }
         public string ChargeClass { get; set; }
         public string ChannelDescription { get; set; }
         public DateTime CreateTime { get; set; }
+        public int Status { get; set; }
     }
 }

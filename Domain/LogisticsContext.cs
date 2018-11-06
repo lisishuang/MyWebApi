@@ -15,7 +15,7 @@ namespace Domain
         }
 
         public virtual DbSet<LogisticsChannel> LogisticsChannel { get; set; }
-
+        public virtual DbSet<LogisticsMerchant> LogisticsMerchant { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 

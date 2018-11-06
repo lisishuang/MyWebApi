@@ -31,7 +31,7 @@ namespace WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("Add")]
-        [AllowAnonymous]
+        [Authorize]
         public async Task<IActionResult> Add([FromBody]LogisticsChannel data)
         {
             data.CreateTime = DateTime.Now;
@@ -44,12 +44,30 @@ namespace WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("RechargeList")]
-        [AllowAnonymous]
+        [Authorize]
         public async Task<IActionResult> RechargeList()
         {
             //List<LogisticsChannel> list = new List<LogisticsChannel>();
             var data = await _logisticsChannelRepository.TableNoTracking.ToPagedListAsync(0,5);
             return Ok(data);
+        }
+        /// <summary>
+        /// 充值类
+        /// 下拉框专用
+        /// </summary>
+        /// <param name="MerchantId">物流应用ID</param>
+        /// <returns></returns>
+        [HttpGet("ChannelList/{MerchantId}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> ChannelList(int MerchantId)
+        {
+            List<LogisticsCmb> list = new List<LogisticsCmb>();
+            var data = await _logisticsChannelRepository.TableNoTracking.Where(x => x.LogisticsMerchantId == MerchantId).ToListAsync();
+            foreach (var item in data)
+            {
+                list.Add(new LogisticsCmb() { Id = item.Id, Name = item.ChargeClass });
+            }
+            return Ok(list);
         }
     }
     /// <summary>

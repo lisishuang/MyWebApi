@@ -31,7 +31,7 @@ namespace WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost("OrderList")]
-        //[Authorize]
+        [Authorize]
         public IActionResult OrderList()
         {
             return (IActionResult)Json(ResponseResult.Execute(new
