@@ -14,6 +14,8 @@ namespace WebApi.Controllers
     /// <summary>
     /// 物流通用接口
     /// </summary>
+    [Route("api/[controller]")]
+    [ApiController]
     public class LogisticsController : Controller
     {
 

@@ -4,11 +4,20 @@
     "windowsAuthentication": false, 
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://10.0.1.46:3740",
+      "applicationUrl": "http://localhost:3740",
       "sslPort": 44376
     }
   },
   "profiles": {
+    "ICH.OpenPlatform.WebAPI": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "hc",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://10.0.1.46:5000/"
+    },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
